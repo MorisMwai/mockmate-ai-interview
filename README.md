@@ -1,6 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MockMate 🎤🤖  
+**Your AI-Powered Mock Interview Partner**
 
-## Getting Started
+MockMate is a web application that helps you practice and improve your interview skills through realistic, AI-driven mock interviews—all using free and modern tools.
+
+## 🚀 Features
+
+- 🧠 AI-powered mock interviews using Vapi
+- ⚡ Built with Next.js and Tailwind CSS
+- 🔐 Firebase Authentication and Firestore for data storage
+- 🎙️ Real-time voice interaction with interview-style prompts
+- 📊 Performance tracking to help you grow
+
+## 🛠️ Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Firebase](https://firebase.google.com/)
+- [Vapi](https://vapi.ai/)
+- [TypeScript](https://www.typescriptlang.org/) (optional but recommended)
+
+## 🧑‍💻 Getting Started
+
+**Clone the repo**
+   ```bash
+   git clone https://github.com/your-username/mockmate-ai-interview.git
+   cd mockmate-ai-interview
 
 First, run the development server:
 
