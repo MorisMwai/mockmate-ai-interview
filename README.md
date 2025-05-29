@@ -21,21 +21,18 @@ MockMate is a web application that helps you practice and improve your interview
 
 ## 🧑‍💻 Getting Started
 
-**Clone the repo**
+**Clone the repo and run the development server:**
    ```bash
    git clone https://github.com/your-username/mockmate-ai-interview.git
    cd mockmate-ai-interview
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
