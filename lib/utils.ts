@@ -32,10 +32,13 @@ export const getTechLogos = async (techArray: string[]) => {
   });
 
   const results = await Promise.all(
-    logoURLs.map(async ({ tech, url }) => ({
-      tech,
-      url: (await checkIconExists(url)) ? url : "/tech.svg",
-    }))
+    logoURLs.map(async ({ tech, url }) => {
+      const exists = await checkIconExists(url);
+      return {
+        tech,
+        url: exists ? url : "/tech.svg", // Fallback to a default icon if the specific one doesn't exist  
+      }
+    })
   );
 
   return results;

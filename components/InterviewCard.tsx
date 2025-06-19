@@ -19,7 +19,7 @@ const InterviewCard = ({ interviewId, userId, role, type, techstack, createdAt}:
                     <p className='badge-text'>{normalizedType}</p>
                 </div>
 
-                <Image src={getRandomInterviewCover()} alt='cover image' width={90} height={90} className='rounded-full object-fit size-[90px]' />
+                <Image src={getRandomInterviewCover()} alt='cover image' width={90} height={90} className='rounded-full object-cover size-[90px]' />
 
                 <h3 className='mt-5 capitalize'>
                     {role} Interview
@@ -43,7 +43,7 @@ const InterviewCard = ({ interviewId, userId, role, type, techstack, createdAt}:
             <div className='flex flex-row justify-between'>
                 <DisplayTechIcons techStack={techstack} />
 
-                <Button className='btn-primary'>
+                <Button asChild className='btn-primary'>
                     <Link href={feedback 
                         ? `/interview/${interviewId}/feedback`
                         : `/interview/${interviewId}`
