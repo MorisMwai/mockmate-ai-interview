@@ -12,7 +12,7 @@ const LogoutButton = () => {
         try {
             await signOut(auth);
 
-            // call API to clear the ssession cookie
+            // call API to clear the session cookie
             await fetch('/api/logout', { method: 'POST' });
 
             toast.success("Signed out successfully!");

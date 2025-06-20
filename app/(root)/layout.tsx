@@ -8,9 +8,9 @@ import UserDropdown from '@/components/UserDropdown'
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
   const user = await getCurrentUser();
-  const isUserAuthenticatded = await isAuthenticated();
+  const isUserAuthenticated = await isAuthenticated();
 
-  if(!isUserAuthenticatded) redirect('/sign-in')
+  if(!isUserAuthenticated) redirect('/sign-in')
     
   return (
     <div className="root-layout">
