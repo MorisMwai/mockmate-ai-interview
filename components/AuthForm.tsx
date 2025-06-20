@@ -14,6 +14,8 @@ import { useRouter } from "next/navigation"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "@/firebase/client"
 import { signIn, signUp } from "@/lib/actions/auth.action"
+import Loader from "./ui/loader"
+import { useState } from "react"
 
 const authFormSchema = (type: FormType) => {
   return z.object({
@@ -24,6 +26,7 @@ const authFormSchema = (type: FormType) => {
 }
 
 const AuthForm = ({ type }: { type: FormType }) => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const formSchema = authFormSchema(type);
 
@@ -41,6 +44,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
+    setLoading(true);
     try {
       if (type === "signup") {
         // Handle sign up logic here
@@ -87,6 +91,8 @@ const AuthForm = ({ type }: { type: FormType }) => {
         console.log(error)
         toast.error(`Error submitting form: ${error}`);
 
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -132,7 +138,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
                         type="password"
                       />
 
-                      <Button className="btn" type="submit">{isSignIn ? 'Sign in' : 'Create Account'}</Button>
+                      <Button className="btn" type="submit" disabled={loading}>{loading ? <Loader /> : isSignIn ? 'Sign in' : 'Create Account'}</Button>
 
                     </form>
 

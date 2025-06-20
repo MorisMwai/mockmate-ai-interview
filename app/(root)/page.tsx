@@ -1,11 +1,23 @@
+"use client"
+
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { dummyInterviews } from '@/constants'
 import InterviewCard from '@/components/InterviewCard'
+import SkeletonInterviewCard from '@/components/SkeletonInterviewCard'
 
 const Page = () => {
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setLoading(false)
+        }, 1200) 
+        return () => clearTimeout(timeout)
+    }, [])
+
     return (
         <>
             <section className='card-cta'>
@@ -29,9 +41,12 @@ const Page = () => {
                 <h2>Your Interview Journey</h2>
 
                 <div className='interviews-section'>
-                    {dummyInterviews.map((interview) => (
-                        <InterviewCard {...interview} key={interview.id} />
-                    ))}
+                    {loading
+                        ? Array(3).fill(null).map((_, i) => <SkeletonInterviewCard key={`skeleton-available-${i}`} />)
+                        : dummyInterviews.map((interview) => (
+                            <InterviewCard {...interview} key={interview.id} />
+                        ))
+                    }
 
                     {/* <p>You haven&apos;t started your interview journey yet. When you do, your practice sessions will appear here.</p> */}
 
@@ -42,10 +57,12 @@ const Page = () => {
                 <h2>Available Mock Interviews</h2>
 
                 <div className='interviews-section'>
-                    {dummyInterviews.map((interview) => (
-                        <InterviewCard {...interview} key={interview.id} />
-                    ))}
-
+                    {loading
+                        ? Array(3).fill(null).map((_, i) => <SkeletonInterviewCard key={`skeleton-journey-${i}`} />)
+                        : dummyInterviews.map((interview) => (
+                            <InterviewCard {...interview} key={interview.id} />
+                        ))
+                    }
                     {/* <p>No mock interviews are currently available. Stay tuned-new scenarios are added regularly.</p> */}
 
                 </div>
