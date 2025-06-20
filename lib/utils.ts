@@ -44,6 +44,16 @@ export const getTechLogos = async (techArray: string[]) => {
   return results;
 };
 
+export const getTechLogosSync = (techArray: string[]) => {
+  return techArray.map((tech) => {
+    const normalized = normalizeTechName(tech);
+    return {
+      tech,
+      url: `${techIconBaseURL}/${normalized}/${normalized}-original.svg`,
+    };
+  });
+};
+
 export const getRandomInterviewCover = () => {
   const randomIndex = Math.floor(Math.random() * interviewCovers.length);
   return `/covers${interviewCovers[randomIndex]}`;
