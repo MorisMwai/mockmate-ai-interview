@@ -1,12 +1,10 @@
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import Image from 'next/image' 
 import InterviewSection from '@/components/InterviewSection'
+import HeroSection from '@/components/HeroSection'
 
 const Page = () => {
     return (
         <>
-            <section className='card-cta'>
+            {/* <section className='card-cta'>
                 <div className='flex flex-col gap-6 max-w-lg'>
                     <h2>Sharpen Your Interview Skills with Smart, Real-Time Coaching</h2>
                     <p className='text-lg'>
@@ -21,8 +19,9 @@ const Page = () => {
                 </div>
 
                 <Image src='/robot.png' alt='robot-dude' width={400} height={400} className='max-sm:hidden'></Image>
-            </section>
+            </section> */}
 
+            <HeroSection />
             <InterviewSection title="Your Interview Journey" />
             <InterviewSection title="Available Mock Interviews" />
 
