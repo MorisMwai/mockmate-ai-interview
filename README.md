@@ -1,7 +1,7 @@
 # MockMate 🎤🤖  
 **Your AI-Powered Mock Interview Partner**
 
-MockMate is a web application that helps you practice and improve your interview skills through realistic, AI-driven mock interviews—all using free and modern tools.
+MockMate is a web application that helps you practice and improve your interview skills through realistic, AI-driven mock interviews - all using free and modern tools.
 
 ## 🚀 Features
 
