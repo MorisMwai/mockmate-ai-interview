@@ -25,7 +25,7 @@ const Agent = ({ userName }: AgentProps) => {
                         <Image src='/ai-avatar.png' alt='vapi' width={65} height={54} className='object-cover' />
                         {isSpeaking && <span className='animate-speak' />}
                     </div>
-                    <h3>AI Interviewew</h3>
+                    <h3>AI Interviewer</h3>
                 </div>
 
                 <div className='card-border'>
