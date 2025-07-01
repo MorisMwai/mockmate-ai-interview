@@ -96,7 +96,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
     }
   }
 
-  const isSignIn = type === "signin";
+  const isSignIn = type === "sign-in";
 
   return (
     <div className="card-border lg:min-w-[566px]">
