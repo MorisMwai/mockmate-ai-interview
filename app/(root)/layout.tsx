@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { ReactNode } from 'react'
 import { getCurrentUser, isAuthenticated } from '@/lib/actions/auth.action'
 import { redirect } from 'next/navigation'
-import LogoutButton from '@/components/LogoutButton'
 import UserDropdown from '@/components/UserDropdown'
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {

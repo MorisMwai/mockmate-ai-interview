@@ -29,7 +29,7 @@ export async function signUp(params: SignUpParams) {
             success: true,
             message: 'Account created successfully. Please sign in.'
         }
-    } catch (e: any) {
+    } catch (e: unknown) {
         console.error('Error signing up:', e);
         throw new Error('Sign up failed');
 
@@ -83,7 +83,7 @@ export async function signIn(params: SignInParams) {
             success: true,
             message: 'Signed in successfully'
         }
-    } catch (e: any) {
+    } catch (e: unknown) {
         console.error('Error signing in:', e);
         throw new Error('Sign in failed');
 
@@ -115,7 +115,7 @@ export async function getCurrentUser(): Promise<User | null> {
             id: userRecord.id,
         } as User;
 
-    } catch (e: any) {
+    } catch (e: unknown) {
         console.error('Error getting current user:', e);
         return null;
     }
