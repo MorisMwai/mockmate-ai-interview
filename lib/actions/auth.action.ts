@@ -88,7 +88,7 @@ export async function signIn(params: SignInParams) {
         }
     } catch (e: unknown) {
         console.error('Error signing in:', e);
-        throw new Error('Sign in failed');
+        // throw new Error('Sign in failed');
 
         return{
             success: false,
