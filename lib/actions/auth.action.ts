@@ -1,7 +1,7 @@
 'use server';
 
 import { auth, db } from "@/firebase/admin";
-import { error } from "console";
+// import { error } from "console";
 import { cookies } from "next/headers";
 
 const ONE_WEEK = 60 * 60 * 24 * 7 * 1000; // 7 days in milliseconds
@@ -31,14 +31,17 @@ export async function signUp(params: SignUpParams) {
         }
     } catch (e: unknown) {
         console.error('Error signing up:', e);
-        throw new Error('Sign up failed');
+        // Safely check if error has a "code" property
 
-        if(error.code === 'auth/email-already-exists') {
+        if (typeof e === 'object' && e !== null && 'code' in e) {
+        const err = e as { code: string };
+
+        if (err.code === 'auth/email-already-exists') {
             return {
-                success: false,
-                message: 'Email already in use'
-            }
-            throw new Error('Email already in use');
+            success: false,
+            message: 'Email already in use'
+            };
+        }
         }
 
         return {
