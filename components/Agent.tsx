@@ -10,7 +10,7 @@ enum CallStatus {
 }
 
 const Agent = ({ userName }: AgentProps) => {
-    const callStatus = CallStatus.ENDED; // This would typically come from props or state
+    const callStatus = CallStatus.ACTIVE; // This would typically come from props or state
     const isSpeaking = false;
     const messages = [
         'What is your name?',
@@ -47,11 +47,11 @@ const Agent = ({ userName }: AgentProps) => {
             )}
 
             <div className='w-full flex justify-center'>
-                {callStatus !== 'ACTIVE' ? (
+                {callStatus !== CallStatus.ACTIVE ? (
                     <button className='relative btn-call'>
-                        <span className={cn('absolute animate-ping rounded-full opacity-75', callStatus !== 'CONNECTING' && 'hidden')}/>
+                        <span className={cn('absolute animate-ping rounded-full opacity-75', callStatus !== CallStatus.CONNECTING && 'hidden')}/>
                                 <span>
-                                    {callStatus === 'INACTIVE' || callStatus === 'ENDED'
+                                    {callStatus === CallStatus.INACTIVE || callStatus === CallStatus.ENDED
                                 ? 'Start Interview'
                                 : '...'}
                                 </span>
