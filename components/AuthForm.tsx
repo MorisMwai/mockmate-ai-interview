@@ -19,7 +19,7 @@ import { useState } from "react"
 
 const authFormSchema = (type: FormType) => {
   return z.object({
-    name: type === "signup" ? z.string().min(3, "Name is required") : z.string().optional(),
+    name: type === "sign-up" ? z.string().min(3, "Name is required") : z.string().optional(),
     email: z.string().email("Invalid email address"),
     password: z.string().min(6, "Password must be at least 6 characters"),
   })
@@ -46,7 +46,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
     // ✅ This will be type-safe and validated.
     setLoading(true);
     try {
-      if (type === "signup") {
+      if (type === "sign-up") {
         // Handle sign up logic here
         const { name, email, password } = values;
 
